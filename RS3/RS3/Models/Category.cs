@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
+using RS3.Models;
 using System;
+using System.Collections.Generic;
 
 namespace RS3.Repositories
 {
@@ -15,6 +17,9 @@ namespace RS3.Repositories
         [JsonProperty("count")]
         private string count { get; set; }
         public int Count { get { return Int32.Parse(count); } set { count = value.ToString(); } }
+
+        [JsonProperty("items")]
+        public List<Item> Items{ get; set; }
 
         public Category()
         {

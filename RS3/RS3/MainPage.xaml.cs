@@ -26,6 +26,14 @@ namespace RS3
             {
                 console.log(category.Name);
             }
+
+
+            var cat = await RuneScapeRepository.GetCategoryById(1);
+            console.log(cat.Name);
+            foreach(var item in cat.Items)
+            {
+                console.log(item.Name);
+            }
         }
     }
 }
