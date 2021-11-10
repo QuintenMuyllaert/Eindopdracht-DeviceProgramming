@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RS3.Models;
+using RS3.Repositories;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,6 +15,17 @@ namespace RS3
         public MainPage()
         {
             InitializeComponent();
+            Test();
+        }
+
+        async public void Test()
+        {
+            console.log("Hello World!");
+            var categories = await RuneScapeRepository.GetCategories();
+            foreach(var category in categories)
+            {
+                console.log(category.Name);
+            }
         }
     }
 }
