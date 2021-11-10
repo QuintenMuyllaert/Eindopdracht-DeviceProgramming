@@ -35,5 +35,13 @@ namespace RS3.Repositories
             var category = JsonConvert.DeserializeObject<Category>(resp);
             return category;
         }
+
+        public static async Task<List<Item>> GetItemsByQuerry(string querry)
+        {
+            // { "items":[] } // Painfull in C#
+            var resp = await HTTP.Get(url + "search/" + querry);
+            var itemList = JsonConvert.DeserializeObject<ItemList>(resp);
+            return itemList.Items;
+        }
     }
 }

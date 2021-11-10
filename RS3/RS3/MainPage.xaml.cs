@@ -20,17 +20,24 @@ namespace RS3
 
         async public void Test()
         {
-            console.log("Hello World!");
+            console.log("--GetCategories--");
             var categories = await RuneScapeRepository.GetCategories();
             foreach(var category in categories)
             {
                 console.log(category.Name);
             }
 
-
+            console.log("--GetCategoryById--");
             var cat = await RuneScapeRepository.GetCategoryById(1);
             console.log(cat.Name);
             foreach(var item in cat.Items)
+            {
+                console.log(item.Name);
+            }
+
+            console.log("--GetItemsByQuerry--");
+            var querry = await RuneScapeRepository.GetItemsByQuerry("fractured");
+            foreach(var item in querry)
             {
                 console.log(item.Name);
             }
