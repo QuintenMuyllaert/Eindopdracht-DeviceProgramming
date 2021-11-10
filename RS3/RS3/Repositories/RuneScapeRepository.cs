@@ -43,5 +43,11 @@ namespace RS3.Repositories
             var itemList = JsonConvert.DeserializeObject<ItemList>(resp);
             return itemList.Items;
         }
+        public static async Task<ItemTransaction> GetTransactionByItemId(int id)
+        {
+            var resp = await HTTP.Get(url + "item/" + id);
+            var tran = JsonConvert.DeserializeObject<ItemTransaction>(resp);
+            return tran;
+        }
     }
 }

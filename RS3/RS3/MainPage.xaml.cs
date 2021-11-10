@@ -41,6 +41,13 @@ namespace RS3
             {
                 console.log(item.Name);
             }
+
+            console.log("");
+            var transactionDetail = await RuneScapeRepository.GetTransactionByItemId(51776); //51776 (Fractured Armadyl Symbol)
+            foreach(var tran in transactionDetail.Tran)
+            {
+                console.log(tran.Id + " " + tran.Price);
+            }
         }
     }
 }
