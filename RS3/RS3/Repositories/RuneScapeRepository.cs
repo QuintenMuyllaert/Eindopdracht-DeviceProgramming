@@ -10,7 +10,7 @@ namespace RS3.Repositories
 {
     internal class RuneScapeRepository
     {
-        public static string url = "http://172.30.248.55/";
+        public static string url = "http://192.168.137.1/";
         public static List<Category> Categories;
         public static async Task<List<Category>> GetCategories()
         {
@@ -54,6 +54,12 @@ namespace RS3.Repositories
             var resp = await HTTP.Get(url + "items");
             var items = JsonConvert.DeserializeObject<List<Item>>(resp);
             return items;
+        }
+        public static async Task<Item> GetItemById(int id)
+        {
+            var resp = await HTTP.Get(url + "item/" + id);
+            var item = JsonConvert.DeserializeObject<Item>(resp);
+            return item;
         }
     }
 }

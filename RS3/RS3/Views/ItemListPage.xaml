@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RS3.Views.ItemListPage">
+        <StackLayout>
+
+                <StackLayout>
+                    <ListView x:Name="listItemsInCategory" ItemSelected="listItemsInCategory_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="45" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+                                <Frame CornerRadius="7" Margin="8" Padding="0">
+                                    <Image Source="{Binding Image}" />
+                                </Frame>
+
+                                <Label Grid.Column="1" Text="{Binding Name}" TextColor="Black" VerticalOptions="Center" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+         </StackLayout>
+</ContentPage>

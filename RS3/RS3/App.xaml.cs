@@ -10,7 +10,9 @@ namespace RS3
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());//Very important add this.. R.I.P. HOURS
+            //MainPage = new MainPage();//grrr.exe
+
         }
 
         protected override void OnStart()

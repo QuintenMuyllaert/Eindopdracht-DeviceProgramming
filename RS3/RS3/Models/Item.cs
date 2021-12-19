@@ -8,7 +8,8 @@ namespace RS3.Models
     public class Item
     {
         [JsonProperty("id")]
-        public string Id { get; set; }
+        private string id { get; set; }
+        public int Id { get { return Int32.Parse(id); } set { id = value.ToString(); } }
 
         [JsonProperty("name")]
         public string Name { get; set; }

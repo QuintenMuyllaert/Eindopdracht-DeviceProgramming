@@ -10,6 +10,7 @@ namespace RS3.Models
         //Made this cuz I was sick of scrolling around for ages in Output to find my Console.Writeline's / Debug.log's...
         public static string Pending = "";
         public static bool IsBusy = false;
+        public static bool Sending = false;
         public static void log(object data)
         {
             _ = logAsync(data);
@@ -33,7 +34,10 @@ namespace RS3.Models
             IsBusy = true;
             String Send = Pending;
             Pending = "";
-            _ = await HTTP.Get("http://172.30.248.55:8080/" + Uri.EscapeDataString(Send));
+            if (Sending)
+            {
+                _ = await HTTP.Get("http://192.168.137.1:8080/" + Uri.EscapeDataString(Send));
+            }
             IsBusy = false;
         }
     }

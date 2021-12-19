@@ -24,6 +24,11 @@ namespace RS3.Models
 
         [JsonProperty("time")]
         public string Time { get; set; }
+
+        public string PricePretty { get { return String.Format("{0:n0}", Int64.Parse(this.Price)) + " gp"; } }
+        public bool HasLink { get { return this.Link != null && this.Link != ""; } }
+
+        public string Color { get { return this.HasLink ? "#2196F3" : "#000000"; } } 
     }
 
     public class Ge

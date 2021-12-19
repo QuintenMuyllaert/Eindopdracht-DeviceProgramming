@@ -18,6 +18,14 @@
 
   <ItemGroup>
     <Folder Include="Assets\" />
-    <Folder Include="Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\ItemScreenshotPage.xaml.cs">
+      <DependentUpon>ItemScreenshotPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\ItemDetailPage.xaml.cs">
+      <DependentUpon>ItemDetailPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

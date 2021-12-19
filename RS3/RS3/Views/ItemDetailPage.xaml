@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RS3.Views.ItemDetailPage">
+
+    <StackLayout>
+        <Label Text="Reported item prices : "></Label>
+                    <ListView x:Name="listPrices" ItemSelected="listPrices_ItemSelected">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="45" />
+                                <ColumnDefinition />
+                                
+                            </Grid.ColumnDefinitions>
+                                <Frame CornerRadius="7" Margin="8" Padding="0">
+                                <Label Grid.Column="1" Text="{Binding Type}" TextColor="{Binding Color}" VerticalOptions="Center" HorizontalTextAlignment="Center" />
+                            </Frame>
+
+                            <Label Grid.Column="1" Text="{Binding PricePretty}" TextColor="Black" VerticalOptions="Center" />
+
+                        </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+</ContentPage>

@@ -1,5 +1,6 @@
 ﻿using RS3.Models;
 using RS3.Repositories;
+using RS3.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,7 +16,9 @@ namespace RS3
         public MainPage()
         {
             InitializeComponent();
-            Test();
+            //Test();
+            NavigationPage.SetHasNavigationBar(this, false);
+            Render();
         }
 
         async public void Test()
@@ -55,6 +58,35 @@ namespace RS3
             {
                 console.log(item.Id + " " +item.Name);
             }
+        }
+        async public void Render()
+        {
+            console.log("Connected to backend.");
+            var categories = await RuneScapeRepository.GetCategories();
+            listCategories.ItemsSource = categories;
+        }
+        private async void listCategories_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (listCategories.SelectedItem == null)
+            {
+                return;
+            }
+            listCategories.SelectedItem = null;
+
+            var category = (Category)listCategories.SelectedItem;
+            var detailedCategory = await RuneScapeRepository.GetCategoryById(category.Id);
+            _ = Navigation.PushModalAsync(new NavigationPage(new ItemListPage(detailedCategory)) as NavigationPage);
+        }
+
+        private async void SearchBar_SearchButtonPressed(object sender, EventArgs e)
+        {
+
+            SearchBar searchBar = (SearchBar)sender;
+            var items = await RuneScapeRepository.GetItemsByQuerry(searchBar.Text);
+            var category = new Category();
+            category.Name = searchBar.Text;
+            category.Items = items;
+            _ = Navigation.PushModalAsync(new NavigationPage(new ItemListPage(category)) as NavigationPage);
         }
     }
 }

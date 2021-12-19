@@ -3,22 +3,34 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RS3.MainPage">
 
-    <StackLayout>
-        <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
-            <Label Text="Welcome to Xamarin.Forms!" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
-        </Frame>
-        <Label Text="Start developing now" FontSize="Title" Padding="30,10,30,10"/>
-        <Label Text="Make changes to your XAML file and save to see your UI update in the running app with XAML Hot Reload. Give it a try!" FontSize="16" Padding="30,0,30,0"/>
-        <Label FontSize="16" Padding="30,24,30,0">
-            <Label.FormattedText>
-                <FormattedString>
-                    <FormattedString.Spans>
-                        <Span Text="Learn more at "/>
-                        <Span Text="https://aka.ms/xamarin-quickstart" FontAttributes="Bold"/>
-                    </FormattedString.Spans>
-                </FormattedString>
-            </Label.FormattedText>
-        </Label>
+
+    <StackLayout VerticalOptions="Fill">
+        <StackLayout BackgroundColor="#2196F3" Padding="12">
+            <Label Text="RuneScape PriceChecker" HorizontalTextAlignment="Center" TextColor="White" FontSize="24" Margin="0"/>
+            <SearchBar Placeholder="Search for rare items" TextColor="#FFFFFF" CancelButtonColor="#FFFFFF" PlaceholderColor="#EEEEEE" SearchButtonPressed="SearchBar_SearchButtonPressed"/>
+        </StackLayout>
+        <ListView x:Name="listCategories" ItemSelected="listCategories_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="45" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <Frame CornerRadius="7" Margin="8" Padding="0">
+                                <Label TextColor="Black" Text="{Binding Count}" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                            </Frame>
+                            
+                            <Label Grid.Column="1" Text="{Binding Name}" TextColor="Black" VerticalOptions="Center" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout BackgroundColor="#2196F3" Padding="12">
+            <Label Text="By Quinten Muyllaert" HorizontalTextAlignment="End" TextColor="White" FontSize="8" Margin="0"/>
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>
