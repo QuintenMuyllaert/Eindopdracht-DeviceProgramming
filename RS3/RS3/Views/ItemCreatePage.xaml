@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RS3.Views.ItemCreatePage"
+             Title="Pricepoint editor">
+       
+    <StackLayout><StackLayout Margin="0" Padding="0" VerticalOptions="StartAndExpand">
+            
+        <Label Text="Name" VerticalOptions="Start"/>
+        <Entry Text="{Binding Name}" x:Name="EntryName" Placeholder="Enter itemname" VerticalOptions="Start"/>
+
+        <Label Text="Price" VerticalOptions="Start"/>
+        <Entry Text="{Binding Price}" x:Name="EntryPrice" Placeholder="Enter price : 100000" VerticalOptions="Start"/>
+
+        <Label Text="Tranaction type" VerticalOptions="Start"/>
+        <Entry Text="{Binding Type}" x:Name="EntryType" Placeholder="Enter type : ins, inb, nis, nib or trade" VerticalOptions="Start"/>
+
+        <Label Text="Image url" VerticalOptions="Start"/>
+         <Entry Text="{Binding Link}" x:Name="EntryLink" Placeholder="Enter an image url : http://....png" VerticalOptions="Start"/>
+        </StackLayout>
+        <StackLayout VerticalOptions="End"> <Button Text="Add/Change Pricepoint" BackgroundColor="#2196F3" TextColor="#FFFFFF" VerticalOptions="End" Clicked="Button_Clicked"/></StackLayout>
+    </StackLayout>
+
+
+</ContentPage>

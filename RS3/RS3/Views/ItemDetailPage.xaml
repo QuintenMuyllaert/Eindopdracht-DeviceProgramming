@@ -26,5 +26,6 @@
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
-                </StackLayout>
+        <Button Text="Add Pricepoint" BackgroundColor="#2196F3" TextColor="#FFFFFF" Clicked="Button_Clicked"/>
+    </StackLayout>
 </ContentPage>

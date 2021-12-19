@@ -14,9 +14,13 @@ namespace RS3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemScreenshotPage : ContentPage
     {
-        public ItemScreenshotPage(Tran transaction)
+        public Tran GlobalTran;
+        public Item GlobalItem;
+        public ItemScreenshotPage(Item item,Tran transaction)
         {
             InitializeComponent();
+            GlobalTran = transaction;
+            GlobalItem = item;
             render(transaction);
         }
 
@@ -24,6 +28,11 @@ namespace RS3.Views
         {
 
             TransactionImage.Source = transaction.Link;
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            _ = Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage(GlobalItem, GlobalTran)) as NavigationPage);
         }
     }
 }

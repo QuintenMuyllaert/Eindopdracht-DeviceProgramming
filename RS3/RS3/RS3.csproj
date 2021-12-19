@@ -21,6 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\ItemCreatePage.xaml.cs">
+      <DependentUpon>ItemCreatePage.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\ItemScreenshotPage.xaml.cs">
       <DependentUpon>ItemScreenshotPage.xaml</DependentUpon>
     </Compile>

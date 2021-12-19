@@ -31,6 +31,13 @@ namespace RS3.Models
         public string Color { get { return this.HasLink ? "#2196F3" : "#000000"; } } 
     }
 
+    public class PostPutTran : Tran
+    {
+        public string ItemId { get; set; }
+        public string ItemName { get; set; }
+        public string PricePretty { get; set; }
+    }
+
     public class Ge
     {
         [JsonProperty("price")]

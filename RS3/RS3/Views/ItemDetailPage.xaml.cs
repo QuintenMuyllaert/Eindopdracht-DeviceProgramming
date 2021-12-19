@@ -14,10 +14,12 @@ namespace RS3.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ItemDetailPage : ContentPage
     {
+        public Item GlobalItem;
         public ItemDetailPage(Item item)
         {
             InitializeComponent();
             this.Title = item.Name;
+            GlobalItem = item;
             render(item);
         }
 
@@ -42,8 +44,14 @@ namespace RS3.Views
             {
                 return;
             }
-            _ = Navigation.PushModalAsync(new NavigationPage(new ItemScreenshotPage(tran)) as NavigationPage);
+            _ = Navigation.PushModalAsync(new NavigationPage(new ItemScreenshotPage(GlobalItem,tran)) as NavigationPage);
 
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            var EmptyTran = new Tran();
+            _ = Navigation.PushModalAsync(new NavigationPage(new ItemCreatePage(GlobalItem,EmptyTran)) as NavigationPage);
         }
     }
 }

@@ -6,6 +6,9 @@ let override = {
   16687466: null,
 };
 
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
+
 app.get("/item/*", async (req, res) => {
   console.log("get item", req.path);
   try {
@@ -45,18 +48,19 @@ app.delete("*", async (req, res) => {
   //delete transaction by id
   console.log(req.path);
   override[req.path.replace("/", "")] = null;
-  res.end(200);
+  res.end();
 });
 
 app.put("*", async (req, res) => {
   //edit existing transaction
-
-  res.end(200);
+  console.log("PUT!",req.body);
+  res.end();
 });
 
 app.post("*", async (req, res) => {
   //create new transaction
-  res.end(200);
+  console.log("POST!",req.body);
+  res.end();
 });
 
 app.listen(80);

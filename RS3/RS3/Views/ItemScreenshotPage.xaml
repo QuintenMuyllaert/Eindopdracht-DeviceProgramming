@@ -4,6 +4,10 @@
              x:Class="RS3.Views.ItemScreenshotPage">
 
     <StackLayout Margin="0" Padding="0">
-            <Image x:Name="TransactionImage" Source="{Binding Link}" Scale="1.5" Margin="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-    </StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"><Image x:Name="TransactionImage" Source="{Binding Link}" Scale="1.5" Margin="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
+</StackLayout>
+        <StackLayout VerticalOptions="End">
+            <Button Text="Modify pricepoint" BackgroundColor="#2196F3" TextColor="#FFFFFF" Clicked="Button_Clicked"/>
+        </StackLayout>
+            </StackLayout>
 </ContentPage>
